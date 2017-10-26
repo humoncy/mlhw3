@@ -6,12 +6,11 @@ import sys
 
 
 num_data = 5000
-num_histograms = 10
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Usage: ", sys.argv[0], "<mean> ", "variance")
+        print("Usage:", sys.argv[0], "<mean>", "variance")
         print("Use default normal distribution: mean=0, var=1")
         mean = 0
         var = 1

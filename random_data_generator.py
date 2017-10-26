@@ -1,7 +1,6 @@
 import numpy as np
-import matplotlib.mlab as mlab
+from sys import float_info
 import matplotlib.pyplot as plt
-import sys
 
 
 generate = 0
@@ -21,7 +20,7 @@ def box_muller(mean, var):
         return mean + z1 * var
 
     u, v = 0.0, 0.0
-    while u < sys.float_info.epsilon:
+    while u < float_info.epsilon:
         u = np.random.random()
         v = np.random.random()
 
@@ -30,4 +29,24 @@ def box_muller(mean, var):
     return mean + z0 * var
 
 
-# def polybasis_linearmodel_data_generator(n, a, w):
+def polybasis_linearmodel_data_generator(n, a, w):
+    x = np.linspace(-10.0, 10.0, 100)
+    phi = np.zeros((n, len(x)))
+    for i in range(n):
+        phi[i, :] = x ** i
+    y = np.dot(np.transpose(w), phi)
+
+    # plot
+    fig = plt.figure()
+    # draw function
+    ax1 = fig.add_subplot(111)
+    ax1.plot(x, np.asarray(y).reshape(-1), color="red")
+
+    e = np.zeros(len(x))
+    for i in range(len(e)):
+        e[i] = box_muller(0, a)
+    y += e
+
+    # draw data
+    ax1.scatter(x, np.asarray(y).reshape(-1), linewidths=1)
+    plt.show()
