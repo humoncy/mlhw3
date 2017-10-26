@@ -10,7 +10,7 @@ z1 = 0
 
 def box_muller(mean, var):
     """
-    Box-Muller transform - Generate Gaussian data
+    Box-Muller transform - univariate Gaussian data generator
     """
     global generate
     global z1
@@ -30,3 +30,4 @@ def box_muller(mean, var):
     return mean + z0 * var
 
 
+# def polybasis_linearmodel_data_generator(n, a, w):
