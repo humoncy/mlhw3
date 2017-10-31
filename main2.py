@@ -1,3 +1,7 @@
+"""
+problem 1.(b)
+"""
+
 import random_data_generator as rdg
 import numpy as np
 import sys
@@ -8,10 +12,10 @@ if __name__ == "__main__":
     a = 0.0
     if len(sys.argv) < 3:
         print("Usage:", sys.argv[0], "<num_basis>", "<a>", "<w0>", "<w1> ...")
-        print("Use default polynomial linear model: n=2, a=50, w0=1, w1=1")
+        print("Use default polynomial linear model: n=2, a=5, w0=0, w1=1")
         n = 2
         a = 5
-        w = np.array([1, 1]).reshape((2, 1))
+        w = np.array([0, 1]).reshape((2, 1))
     else:
         n = int(sys.argv[1])
         a = float(sys.argv[2])

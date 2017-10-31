@@ -48,5 +48,16 @@ def polybasis_linearmodel_data_generator(n, a, w):
     y += e
 
     # draw data
-    ax1.scatter(x, np.asarray(y).reshape(-1), linewidths=1)
+    ax1.scatter(x, np.asarray(y).reshape(-1), s=5)
     plt.show()
+
+
+def linear_model_data_generator(n, a, w, x):
+    phi = np.zeros((n, 1))
+    for i in range(n):
+        phi[i, 0] = x ** i
+    y = np.dot(np.transpose(w), phi)
+    e = box_muller(0, a)
+    y += e
+
+    return y

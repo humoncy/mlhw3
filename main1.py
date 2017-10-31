@@ -1,3 +1,7 @@
+"""
+problem 1.(a)
+"""
+
 import random_data_generator as rdg
 import numpy as np
 import matplotlib.mlab as mlab

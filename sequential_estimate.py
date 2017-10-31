@@ -1,6 +1,15 @@
+"""
+problem 2
+"""
 import numpy as np
 from random_data_generator import box_muller
 import sys
+
+
+def online_mean(xn, old_mean, n):
+    delta = xn - old_mean
+    new_mean = old_mean + (delta / n)
+    return new_mean
 
 
 def sequential_estimation(mu, sigma):
